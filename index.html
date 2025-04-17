@@ -42,108 +42,84 @@
             color: var(--text);
             line-height: 1.6;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Styles */
+        .main-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius);
+            transition: background-color 0.3s;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Main Content Container */
+        .main-container {
+            flex: 1;
+            width: 100%;
+            padding: 20px 0;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
         }
 
-        /* Header */
-        header {
-            text-align: center;
-            padding: 30px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            border-radius: var(--radius);
-            margin-bottom: 30px;
-            box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .subtitle {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        /* Toggle Switch */
-        .toggle-container {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .toggle-switch {
-            position: relative;
-            display: inline-block;
-            width: 60px;
-            height: 30px;
-        }
-
-        .toggle-switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: var(--dark);
-            transition: .4s;
-            border-radius: 34px;
-        }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 22px;
-            width: 22px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            transition: .4s;
-            border-radius: 50%;
-        }
-
-        input:checked + .slider {
-            background-color: var(--primary);
-        }
-
-        input:checked + .slider:before {
-            transform: translateX(30px);
-        }
-
-        /* Main Content */
+        /* Main Content Grid */
         .main-content {
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 25px;
+            margin-top: 20px;
         }
 
         @media (max-width: 768px) {
@@ -160,6 +136,15 @@
             box-shadow: var(--shadow);
         }
 
+        /* Footer Styles */
+        .main-footer {
+            background: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            margin-top: auto;
+        }
+
+        /* Rest of your original styles */
         .tab-container {
             display: flex;
             gap: 10px;
@@ -179,7 +164,6 @@
             background: var(--primary);
         }
 
-        /* Ingredients Input */
         .form-group {
             margin-bottom: 20px;
         }
@@ -245,7 +229,6 @@
             background: #3dbeb6;
         }
 
-        /* Recipe Result */
         .recipe-result {
             margin-top: 30px;
             padding: 25px;
@@ -403,7 +386,7 @@
         /* Meal Planner */
         .meal-plan {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(7, 1fr);
             gap: 10px;
             margin-top: 15px;
         }
@@ -463,6 +446,71 @@
             display: none;
         }
 
+        /* Footer Content */
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-column h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
         /* Notifications */
         .notification {
             position: fixed;
@@ -506,8 +554,19 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-utensils logo-icon"></i>
+                <span class="logo-text">AI Maa Ke Haath Ka Khana</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#" class="nav-link">Home</a>
+                <a href="#recipes" class="nav-link">Recipes</a>
+                <a href="#meal-planner" class="nav-link">Meal Planner</a>
+                <a href="#about" class="nav-link">About</a>
+            </nav>
             <div class="toggle-container">
                 <span id="mode-text">Light</span>
                 <label class="toggle-switch">
@@ -515,178 +574,226 @@
                     <span class="slider"></span>
                 </label>
             </div>
-            <h1>AI Maa Ke Haath Ka Khana 👩🍳</h1>
-            <p class="subtitle">Your smart Indian kitchen assistant with AI magic!</p>
-        </header>
-
-        <div class="main-content">
-            <section class="recipe-section">
-                <div class="tab-container">
-                    <div class="tab active" data-tab="recipe">Recipe Finder</div>
-                    <div class="tab" data-tab="meal">Meal Planner</div>
-                    <div class="tab" data-tab="ask">Ask AI Maa</div>
-                </div>
-
-                <!-- Recipe Finder Tab -->
-                <div id="recipe-tab" class="tab-content active">
-                    <div class="form-group">
-                        <label for="ingredients">What's in your fridge?</label>
-                        <div class="input-group">
-                            <input type="text" id="ingredients" placeholder="e.g., onions, potatoes, chicken">
-                            <button class="voice-btn" id="voice-btn"><i class="fas fa-microphone"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="diet">Dietary Preference</label>
-                        <select id="diet">
-                            <option value="any">Any</option>
-                            <option value="vegetarian">Vegetarian</option>
-                            <option value="vegan">Vegan</option>
-                            <option value="non-veg">Non-Vegetarian</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="cuisine">Cuisine Style</label>
-                        <select id="cuisine">
-                            <option value="any">Any</option>
-                            <option value="north">North Indian</option>
-                            <option value="south">South Indian</option>
-                            <option value="punjabi">Punjabi</option>
-                            <option value="gujarati">Gujarati</option>
-                            <option value="bengali">Bengali</option>
-                        </select>
-                    </div>
-
-                    <button id="find-recipe"><i class="fas fa-search"></i> Find Recipes</button>
-
-                    <div id="recipe-result" class="recipe-result">
-                        <div class="recipe-header">
-                            <h2 class="recipe-name" id="recipe-name">Aloo Gobi</h2>
-                            <button id="save-recipe"><i class="fas fa-heart"></i> Save</button>
-                        </div>
-                        <div class="recipe-meta" id="recipe-meta">
-                            <span class="meta-item"><i class="fas fa-fire"></i> 320 cal</span>
-                            <span class="meta-item"><i class="fas fa-clock"></i> 30 mins</span>
-                            <span class="meta-item"><i class="fas fa-utensils"></i> Serves 4</span>
-                        </div>
-                        <div class="recipe-image" id="recipe-image">
-                            <i class="fas fa-utensils"></i>
-                        </div>
-                        <div class="recipe-instructions" id="recipe-instructions">
-                            <h3><i class="fas fa-list-ol"></i> Instructions</h3>
-                            <ol>
-                                <li>Heat oil in a pan and add cumin seeds</li>
-                                <li>Add chopped onions and sauté until golden</li>
-                                <li>Add potatoes and cook for 5 minutes</li>
-                                <li>Add cauliflower and spices, cook covered</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Meal Planner Tab -->
-                <div id="meal-tab" class="tab-content">
-                    <div class="form-group">
-                        <label>Generate Weekly Meal Plan</label>
-                        <button id="generate-meal-plan"><i class="fas fa-calendar-alt"></i> Generate Plan</button>
-                    </div>
-
-                    <div id="meal-plan-result">
-                        <div class="meal-plan">
-                            <div class="meal-day active" data-day="monday">Mon</div>
-                            <div class="meal-day" data-day="tuesday">Tue</div>
-                            <div class="meal-day" data-day="wednesday">Wed</div>
-                            <div class="meal-day" data-day="thursday">Thu</div>
-                            <div class="meal-day" data-day="friday">Fri</div>
-                            <div class="meal-day" data-day="saturday">Sat</div>
-                            <div class="meal-day" data-day="sunday">Sun</div>
-                        </div>
-
-                        <div id="day-meals" style="margin-top: 20px;">
-                            <h3>Monday Meals</h3>
-                            <div class="meal-item">
-                                <strong>Breakfast:</strong> Poha with Peanuts
-                            </div>
-                            <div class="meal-item">
-                                <strong>Lunch:</strong> Rajma Chawal
-                            </div>
-                            <div class="meal-item">
-                                <strong>Dinner:</strong> Roti with Aloo Sabzi
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- AI Chat Tab -->
-                <div id="ask-tab" class="tab-content">
-                    <div class="ai-chat">
-                        <div class="ai-message">
-                            <strong>AI Maa:</strong> Namaste beta! How can I help you today?
-                        </div>
-                        <div class="user-message">
-                            <strong>You:</strong> How do I make soft rotis?
-                        </div>
-                        <div class="ai-message">
-                            <strong>AI Maa:</strong> Beta, the secret is in the kneading! Use warm water, knead for at least 5 minutes, and let the dough rest for 30 minutes before rolling.
-                        </div>
-                    </div>
-                    <div class="input-group" style="margin-top: 15px;">
-                        <input type="text" id="ai-question" placeholder="Ask AI Maa...">
-                        <button id="ask-ai"><i class="fas fa-paper-plane"></i> Ask</button>
-                    </div>
-                </div>
-            </section>
-
-            <aside class="sidebar">
-                <div class="sidebar-card">
-                    <h3 class="sidebar-title"><i class="fas fa-chart-pie"></i> Nutrition Info</h3>
-                    <div class="nutrition-grid">
-                        <div class="nutrition-item">
-                            <div class="nutrition-value" id="calories">320</div>
-                            <div class="nutrition-label">Calories</div>
-                        </div>
-                        <div class="nutrition-item">
-                            <div class="nutrition-value" id="protein">12g</div>
-                            <div class="nutrition-label">Protein</div>
-                        </div>
-                        <div class="nutrition-item">
-                            <div class="nutrition-value" id="carbs">45g</div>
-                            <div class="nutrition-label">Carbs</div>
-                        </div>
-                        <div class="nutrition-item">
-                            <div class="nutrition-value" id="fats">8g</div>
-                            <div class="nutrition-label">Fats</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="sidebar-card">
-                    <h3 class="sidebar-title"><i class="fas fa-shopping-basket"></i> Shopping List</h3>
-                    <ul class="shopping-list" id="shopping-list">
-                        <li><input type="checkbox"> Onions (2)</li>
-                        <li><input type="checkbox"> Tomatoes (4)</li>
-                        <li><input type="checkbox"> Potatoes (1kg)</li>
-                        <li><input type="checkbox"> Garam Masala</li>
-                    </ul>
-                    <button style="margin-top: 10px;"><i class="fas fa-plus"></i> Add Item</button>
-                </div>
-
-                <div class="sidebar-card">
-                    <h3 class="sidebar-title"><i class="fas fa-camera"></i> Food Scanner</h3>
-                    <div class="image-upload">
-                        <input type="file" id="food-image" accept="image/*" style="display: none;">
-                        <button onclick="document.getElementById('food-image').click()">
-                            <i class="fas fa-upload"></i> Upload Food Photo
-                        </button>
-                        <img id="image-preview" class="image-preview">
-                        <div id="image-result" style="margin-top: 10px; font-style: italic;"></div>
-                    </div>
-                </div>
-            </aside>
         </div>
-    </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <div class="container">
+            <div class="main-content">
+                <section class="recipe-section">
+                    <div class="tab-container">
+                        <div class="tab active" data-tab="recipe">Recipe Finder</div>
+                        <div class="tab" data-tab="meal">Meal Planner</div>
+                        <div class="tab" data-tab="ask">Ask AI Maa</div>
+                    </div>
+
+                    <!-- Recipe Finder Tab -->
+                    <div id="recipe-tab" class="tab-content active">
+                        <div class="form-group">
+                            <label for="ingredients">What's in your fridge?</label>
+                            <div class="input-group">
+                                <input type="text" id="ingredients" placeholder="e.g., onions, potatoes, chicken">
+                                <button class="voice-btn" id="voice-btn"><i class="fas fa-microphone"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="diet">Dietary Preference</label>
+                            <select id="diet">
+                                <option value="any">Any</option>
+                                <option value="vegetarian">Vegetarian</option>
+                                <option value="vegan">Vegan</option>
+                                <option value="non-veg">Non-Vegetarian</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cuisine">Cuisine Style</label>
+                            <select id="cuisine">
+                                <option value="any">Any</option>
+                                <option value="north">North Indian</option>
+                                <option value="south">South Indian</option>
+                                <option value="punjabi">Punjabi</option>
+                                <option value="gujarati">Gujarati</option>
+                                <option value="bengali">Bengali</option>
+                            </select>
+                        </div>
+
+                        <button id="find-recipe"><i class="fas fa-search"></i> Find Recipes</button>
+
+                        <div id="recipe-result" class="recipe-result">
+                            <div class="recipe-header">
+                                <h2 class="recipe-name" id="recipe-name">Aloo Gobi</h2>
+                                <button id="save-recipe"><i class="fas fa-heart"></i> Save</button>
+                            </div>
+                            <div class="recipe-meta" id="recipe-meta">
+                                <span class="meta-item"><i class="fas fa-fire"></i> 320 cal</span>
+                                <span class="meta-item"><i class="fas fa-clock"></i> 30 mins</span>
+                                <span class="meta-item"><i class="fas fa-utensils"></i> Serves 4</span>
+                            </div>
+                            <div class="recipe-image" id="recipe-image">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <div class="recipe-instructions" id="recipe-instructions">
+                                <h3><i class="fas fa-list-ol"></i> Instructions</h3>
+                                <ol>
+                                    <li>Heat oil in a pan and add cumin seeds</li>
+                                    <li>Add chopped onions and sauté until golden</li>
+                                    <li>Add potatoes and cook for 5 minutes</li>
+                                    <li>Add cauliflower and spices, cook covered</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Meal Planner Tab -->
+                    <div id="meal-tab" class="tab-content">
+                        <div class="form-group">
+                            <label>Generate Weekly Meal Plan</label>
+                            <button id="generate-meal-plan"><i class="fas fa-calendar-alt"></i> Generate Plan</button>
+                        </div>
+
+                        <div id="meal-plan-result">
+                            <div class="meal-plan">
+                                <div class="meal-day active" data-day="monday">Mon</div>
+                                <div class="meal-day" data-day="tuesday">Tue</div>
+                                <div class="meal-day" data-day="wednesday">Wed</div>
+                                <div class="meal-day" data-day="thursday">Thu</div>
+                                <div class="meal-day" data-day="friday">Fri</div>
+                                <div class="meal-day" data-day="saturday">Sat</div>
+                                <div class="meal-day" data-day="sunday">Sun</div>
+                            </div>
+
+                            <div id="day-meals" style="margin-top: 20px;">
+                                <h3>Monday Meals</h3>
+                                <div class="meal-item">
+                                    <strong>Breakfast:</strong> Poha with Peanuts
+                                </div>
+                                <div class="meal-item">
+                                    <strong>Lunch:</strong> Rajma Chawal
+                                </div>
+                                <div class="meal-item">
+                                    <strong>Dinner:</strong> Roti with Aloo Sabzi
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI Chat Tab -->
+                    <div id="ask-tab" class="tab-content">
+                        <div class="ai-chat">
+                            <div class="ai-message">
+                                <strong>AI Maa:</strong> Namaste beta! How can I help you today?
+                            </div>
+                            <div class="user-message">
+                                <strong>You:</strong> How do I make soft rotis?
+                            </div>
+                            <div class="ai-message">
+                                <strong>AI Maa:</strong> Beta, the secret is in the kneading! Use warm water, knead for at least 5 minutes, and let the dough rest for 30 minutes before rolling.
+                            </div>
+                        </div>
+                        <div class="input-group" style="margin-top: 15px;">
+                            <input type="text" id="ai-question" placeholder="Ask AI Maa...">
+                            <button id="ask-ai"><i class="fas fa-paper-plane"></i> Ask</button>
+                        </div>
+                    </div>
+                </section>
+
+                <aside class="sidebar">
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title"><i class="fas fa-chart-pie"></i> Nutrition Info</h3>
+                        <div class="nutrition-grid">
+                            <div class="nutrition-item">
+                                <div class="nutrition-value" id="calories">320</div>
+                                <div class="nutrition-label">Calories</div>
+                            </div>
+                            <div class="nutrition-item">
+                                <div class="nutrition-value" id="protein">12g</div>
+                                <div class="nutrition-label">Protein</div>
+                            </div>
+                            <div class="nutrition-item">
+                                <div class="nutrition-value" id="carbs">45g</div>
+                                <div class="nutrition-label">Carbs</div>
+                            </div>
+                            <div class="nutrition-item">
+                                <div class="nutrition-value" id="fats">8g</div>
+                                <div class="nutrition-label">Fats</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title"><i class="fas fa-shopping-basket"></i> Shopping List</h3>
+                        <ul class="shopping-list" id="shopping-list">
+                            <li><input type="checkbox"> Onions (2)</li>
+                            <li><input type="checkbox"> Tomatoes (4)</li>
+                            <li><input type="checkbox"> Potatoes (1kg)</li>
+                            <li><input type="checkbox"> Garam Masala</li>
+                        </ul>
+                        <button style="margin-top: 10px;"><i class="fas fa-plus"></i> Add Item</button>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title"><i class="fas fa-camera"></i> Food Scanner</h3>
+                        <div class="image-upload">
+                            <input type="file" id="food-image" accept="image/*" style="display: none;">
+                            <button onclick="document.getElementById('food-image').click()">
+                                <i class="fas fa-upload"></i> Upload Food Photo
+                            </button>
+                            <img id="image-preview" class="image-preview">
+                            <div id="image-result" style="margin-top: 10px; font-style: italic;"></div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <p>AI Maa Ke Haath Ka Khana brings you the taste of homemade Indian food with the power of artificial intelligence.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#recipes">Recipes</a></li>
+                    <li><a href="#meal-planner">Meal Planner</a></li>
+                    <li><a href="#ask-ai">Ask AI Maa</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Categories</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Vegetarian</a></li>
+                    <li><a href="#">Non-Vegetarian</a></li>
+                    <li><a href="#">Vegan</a></li>
+                    <li><a href="#">Desserts</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-envelope"></i> contact@aimaakehaath.com</li>
+                    <li><i class="fas fa-phone"></i> +91 9876543210</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Mumbai, India</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 AI Maa Ke Haath Ka Khana. All Rights Reserved.
+        </div>
+    </footer>
 
     <script>
         // ==================== AI RECIPE DATABASE ====================
@@ -780,6 +887,63 @@
                     "Use cast iron tawa for crispy dosas",
                     "Make batter slightly thin for paper dosa"
                 ]
+            },
+            {
+                id: 4,
+                name: "Poha with Peanuts",
+                ingredients: ["poha", "peanuts", "onions", "potatoes", "spices"],
+                instructions: [
+                    "Rinse poha and set aside to drain",
+                    "Roast peanuts in oil and set aside",
+                    "Sauté mustard seeds, curry leaves, and green chilies",
+                    "Add chopped onions and potatoes, cook until soft",
+                    "Add turmeric and salt, mix well",
+                    "Add drained poha and mix gently",
+                    "Garnish with fresh coriander and roasted peanuts"
+                ],
+                nutrition: {
+                    calories: 250,
+                    protein: "6g",
+                    carbs: "40g",
+                    fats: "7g"
+                },
+                time: "20 mins",
+                serves: 2,
+                cuisine: "north",
+                diet: "vegetarian",
+                tips: [
+                    "Use thick poha for better texture",
+                    "Add a pinch of sugar for balanced flavor",
+                    "Squeeze lemon juice before serving for freshness"
+                ]
+            },
+            {
+                id: 5,
+                name: "Rajma Chawal",
+                ingredients: ["rajma", "rice", "onions", "tomatoes", "spices"],
+                instructions: [
+                    "Soak rajma overnight and pressure cook until tender",
+                    "Sauté onions, ginger-garlic paste, and spices",
+                    "Add tomatoes and cook until oil separates",
+                    "Add cooked rajma and simmer for 15 minutes",
+                    "Garnish with fresh coriander",
+                    "Serve with steamed rice"
+                ],
+                nutrition: {
+                    calories: 450,
+                    protein: "18g",
+                    carbs: "70g",
+                    fats: "10g"
+                },
+                time: "60 mins",
+                serves: 3,
+                cuisine: "north",
+                diet: "vegetarian",
+                tips: [
+                    "Use Kashmiri rajma for best results",
+                    "Add a dollop of butter before serving",
+                    "Cook on low flame for richer flavor"
+                ]
             }
         ];
 
@@ -832,6 +996,7 @@
         const foodImageInput = document.getElementById('food-image');
         const imagePreview = document.getElementById('image-preview');
         const imageResult = document.getElementById('image-result');
+        const mealDays = document.querySelectorAll('.meal-day');
 
         // ==================== EVENT LISTENERS ====================
         darkModeToggle.addEventListener('change', toggleDarkMode);
@@ -842,6 +1007,14 @@
         askAiBtn.addEventListener('click', askAI);
         voiceBtn.addEventListener('click', startVoiceRecognition);
         foodImageInput.addEventListener('change', handleImageUpload);
+        
+        // Add event listeners for meal days
+        mealDays.forEach(day => {
+            day.addEventListener('click', () => {
+                const dayName = day.dataset.day;
+                displayDayMeals(dayName);
+            });
+        });
 
         // Initialize the app
         init();
@@ -850,6 +1023,12 @@
         function init() {
             renderShoppingList();
             updateNutritionInfo(RECIPES[0].nutrition);
+            
+            // Check for saved dark mode preference
+            if (localStorage.getItem('darkMode') === 'true') {
+                darkModeToggle.checked = true;
+                toggleDarkMode();
+            }
         }
 
         function toggleDarkMode() {
@@ -977,7 +1156,10 @@
 
         function displayDayMeals(day) {
             const meals = state.mealPlan[day];
-            if (!meals) return;
+            if (!meals) {
+                showNotification("Please generate a meal plan first!");
+                return;
+            }
             
             let html = '<h3>' + day.charAt(0).toUpperCase() + day.slice(1) + ' Meals</h3>';
             for (const [meal, recipe] of Object.entries(meals)) {
